@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">EV3 BT RC</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_rc">RCActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="enter_macadd">Please enter the EV3 mac address</string>
+    <string name="default_macadd">Mac Address</string>
+    <string name="bt_permission_request">Enable Bluetooth?</string>
+    <string name="allow">Allow</string>
+    <string name="bt_enabled">Bluetooth enabled</string>
+    <string name="exit">Exit</string>
+    <string name="faster">Faster</string>
+    <string name="right">Right</string>
+    <string name="forwards">Forwards</string>
+    <string name="left">Left</string>
+    <string name="backwards">Backwards</string>
+    <string name="slower">Slower</string>
+    <string name="ouvertureTotale">Ouverture totale</string>
+    <string name="ouverturePartielle">Ouverture partielle</string>
+    <string name="bt_failed">Could not connect to given mac address</string>
+    <string name="bt_disabled">Please enable Bluetooth</string>
+    <string name="title_activity_add_user">Ajout user</string>
+    <string name="default_password">Password</string>
+    <string name="createAccount">Creer compte</string>
+    <string name="pseudo">Pseudo</string>
+    <string name="btcom">btcom</string>
+    <string name="btCreerUser">Ne fonctionne pas</string>
+    <string name="nameVeh">Nom véhicule</string>
+    <string name="addMac">\@Mac Véhicule</string>
+    <string name="createVehicule">CREER VEHICULE</string>
+    <string name="deconnexion">Déconnexion</string>
+</resources>
