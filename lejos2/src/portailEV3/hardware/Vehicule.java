@@ -38,6 +38,8 @@ public class Vehicule {
     public void setMac(String admac) {
         this.admac = admac;
     }
+    
+    //Ecriture du véhicule dans le fichier JSon
     public void writeVehicule(Vehicule vehicle, String filename) {
         
         JSONArray Array = new JSONArray();
@@ -58,16 +60,20 @@ public class Vehicule {
 			e2.printStackTrace();
 		}
         
-		
+		//récupération des données 
         JSONObject vehicleDetail = new JSONObject();
         vehicleDetail.put("name", vehicle.getName());
         vehicleDetail.put("mac", vehicle.getMac());
         
+        //création de l'objet avec les données
         JSONObject Vehicle = new JSONObject();
         Vehicle.put("Vehicle", vehicleDetail);
-	
+
+        //Ajout du véhicule dans le tableau dans le fichier JSon
         Array.add(Vehicle);
        
+        
+        //Création du fichier JSon si il n'existe pas
         try {
             fileWriter = new FileWriter("./"+filename+".json");
             fileWriter.write(Array.toString());
@@ -87,6 +93,8 @@ public class Vehicule {
         }
         System.out.println("L'utilisateur "+vehicle.getName()+" a été ajouté");
     }
+    
+    //LEcture du fichier JSon des véhicules
     public void readVehicule(Vehicule vehicle, String filename) throws JSONException{
 		JSONParser jsonParser = new JSONParser();
          
@@ -98,10 +106,10 @@ public class Vehicule {
             JSONArray Vehicles = (JSONArray) obj;
             System.out.println("array : "+Vehicles);
              
-            //Iterate over employee array
+            //Iteration du tableau des véhicules dans le fichier Json
             for (Iterator iterator = Vehicles.iterator(); iterator.hasNext();) {
-            	JSONObject Iterationeur = (JSONObject) iterator.next();
-            	JSONObject Vehicle = (JSONObject) Iterationeur.get("Vehicle");
+            	JSONObject Iteration = (JSONObject) iterator.next();
+            	JSONObject Vehicle = (JSONObject) Iteration.get("Vehicle");
             	System.out.println("Vehicle : "+Vehicle);
             	String name = ((String) Vehicle.get("name")).trim();
             	String mac = ((String) Vehicle.get("mac")).trim();
@@ -117,22 +125,5 @@ public class Vehicule {
             e.printStackTrace();
         }
 		
-    }
- 
-    private static void parseVehicleObject(JSONObject obj) throws JSONException 
-    {
-        
-        JSONObject vehicleObject;
-	
-        vehicleObject = (JSONObject) obj.get("Vehicle");
-
-        
-        String nom = (String) vehicleObject.get("name");    
-        System.out.println(nom);
-         
-       
-        String mac = (String) vehicleObject.get("mac");  
-        System.out.println(mac);
- 
     }
 }

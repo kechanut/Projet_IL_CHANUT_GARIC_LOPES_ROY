@@ -40,6 +40,7 @@ public class Utilisateur {
         this.mdp = mdp;
     }
 
+    //écriture dans le fichier JSon sur la brique du User ajouté depuis l'application
     public void writeUtilisateur(Utilisateur user, String filename) {
         JSONArray Array = new JSONArray();
         JSONParser jsonParser = new JSONParser();
@@ -59,16 +60,20 @@ public class Utilisateur {
 			e2.printStackTrace();
 		}
         
-		
+		//Récupération des valeurs
         JSONObject UserDetail = new JSONObject();
         UserDetail.put("name", user.getName());
 		UserDetail.put("mdp", user.getPwd());
         
+		
+		//Ajouts des valeurs dans un Json object
         JSONObject User = new JSONObject();
         User.put("User", UserDetail);
 	
+        //ajout dans le tableau des users
         Array.add(User);
        
+        //Création du fichier si il n'existe pas
         try {
             fileWriter = new FileWriter("./"+filename+".json");
             fileWriter.write(Array.toString());
@@ -88,23 +93,29 @@ public class Utilisateur {
         }
         System.out.println("L'utilisateur "+user.getName()+" a été ajouté");
     }
+    
+    //Lecture du fichier des utilisateurs
     public void readUtilisateur(Utilisateur user, String filename) throws JSONException{
         System.out.println("Lecture du fichier Utilisateurs");
 
     	JSONParser jsonParser = new JSONParser();
          
+    	
 		try (FileReader reader = new FileReader("./"+filename+".json"))
         {
             //Read JSON file
             Object obj = jsonParser.parse(reader);
- 
+            
+            //récupération du tableau des users dans le fichier
             JSONArray Users = (JSONArray) obj;
             System.out.println("array : "+Users);
              
-            //Iterate over employee array
+            //Iteration du tableau des users
             for (Iterator iterator = Users.iterator(); iterator.hasNext();) {
-            	JSONObject Iterationeur = (JSONObject) iterator.next();
-            	JSONObject User = (JSONObject) Iterationeur.get("User");
+            	JSONObject Iteration = (JSONObject) iterator.next();
+            	JSONObject User = (JSONObject) Iteration.get("User");
+            	
+            	//Affichage des infos du USer dans la console
             	System.out.println("User : "+User);
             	String name = ((String) User.get("name")).trim();
             	String mdp = ((String) User.get("mdp")).trim();
@@ -119,31 +130,6 @@ public class Utilisateur {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-		
-/*		JSONObject jobjet = new JSONObject("User");
-		JSONArray userList = (JSONArray) jobjet.get("User");
-		System.out.println(userList);
-		 
-		for (int i=0; i < userList.length(); i++) {
-			parseUserObject(userList.getJSONObject(i));
-		}*/
     }
- 
-    private static void parseUserObject(JSONObject obj) throws JSONException 
-    {
-        //Get employee object within list
-        JSONObject userObject;
-	
-		userObject = (JSONObject) obj.get("User");
-		
-         
-        //Get employee first name
-        String nom = (String) userObject.get("name");    
-        System.out.println(nom);
-         
-        //Get employee last name
-        String mdp = (String) userObject.get("mdp");  
-        System.out.println(mdp);
- 
-    }
+
 }

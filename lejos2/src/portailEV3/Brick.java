@@ -106,6 +106,8 @@ public class Brick{
 				EBT.start();
 				System.out.println("Connecté : ");
 				isConnected = true;
+				
+				//Tant que la connexion est active
 				while(isConnected) {
 					msgTelecommande = EBT.msg;
 					if (msgTelecommande != null && msgTelecommande != msgTelecommandePrecedent) {
@@ -126,6 +128,8 @@ public class Brick{
 										portail.majEtatPortail();
 										ouverturePartielle();
 										break;
+										
+										//Préparation de la gestion de la deconnexion, ne fonctionne pas encore 
 									case "deconnexion":
 										isConnected = false;
 										System.out.println("Test deconnexion");
@@ -138,9 +142,12 @@ public class Brick{
 							case "connexion":
 								System.out.println(msgTelecommande.getParams().get(0) + " " + msgTelecommande.getParams().get(0));
 								break;
+								
+								//Gestion de la création des users
 							case "newuser":
 								Utilisateur u = new Utilisateur(msgTelecommande.getParams().get(0), msgTelecommande.getParams().get(1));
 								try {
+									//écriture et lecture du fichiers utilisateurs
 									u.writeUtilisateur(u,"Utilisateurs");
 									u.readUtilisateur(u,"Utilisateurs");
 								} catch (JSONException e) {
@@ -148,9 +155,12 @@ public class Brick{
 									e.printStackTrace();
 								}
 								break;
+								
+								//GEstion de la création de nouveaux véhicules
 							case "newvehicule":
 								Vehicule v = new Vehicule(msgTelecommande.getParams().get(0), msgTelecommande.getParams().get(1));
 								try {
+									//écriture et lecture du fichiers Véhicules
 									v.writeVehicule(v,"Vehicules");
 									v.readVehicule(v,"Vehicules");
 								} catch (JSONException e) {
