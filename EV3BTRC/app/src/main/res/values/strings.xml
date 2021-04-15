@@ -24,13 +24,12 @@
     <string name="bt_failed">Could not connect to given mac address</string>
     <string name="bt_disabled">Please enable Bluetooth</string>
     <string name="title_activity_add_user">Ajout user</string>
-    <string name="default_password">Password</string>
+    <string name="default_password">PAssword</string>
     <string name="createAccount">Creer compte</string>
     <string name="pseudo">Pseudo</string>
     <string name="btcom">btcom</string>
-    <string name="btCreerUser">Ne fonctionne pas</string>
+    <string name="createVehicule">Créer un véhicule</string>
+    <string name="deconnexion">Deconnexion (ne fonctionne pas)</string>
+    <string name="addMac">Adresse mac</string>
     <string name="nameVeh">Nom véhicule</string>
-    <string name="addMac">\@Mac Véhicule</string>
-    <string name="createVehicule">CREER VEHICULE</string>
-    <string name="deconnexion">Déconnexion</string>
 </resources>

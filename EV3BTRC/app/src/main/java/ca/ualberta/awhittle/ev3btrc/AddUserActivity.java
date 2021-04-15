@@ -5,17 +5,15 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class AddUserActivity extends AppCompatActivity {
@@ -91,14 +89,12 @@ public class AddUserActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
-
         final Button creerUser = (Button) findViewById(R.id.createUserButton);
         creerUser.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String pseudotostring = pseudo.getText().toString();
                 String mdptostring = mdp.getText().toString();
                 User newuser = new User(pseudotostring,mdptostring);
-
 
                 try {
                     ArrayList<String> params = new ArrayList<>();
