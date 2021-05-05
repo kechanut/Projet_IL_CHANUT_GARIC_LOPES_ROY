@@ -164,6 +164,7 @@ public class RCActivity extends AppCompatActivity {
         final EditText nameVehi = (EditText) findViewById(R.id.textNameVehi);
         final EditText addMac = (EditText) findViewById(R.id.textAddMac);
 
+        //Bouton permettant la création d'un véhicule
         final Button creerVehicule = (Button) findViewById(R.id.createVehiculeButton);
         creerVehicule.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
